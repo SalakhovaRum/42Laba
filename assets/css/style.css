@@ -1,0 +1,307 @@
+*{
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: black;
+}
+body{
+    background: #f6f6f6;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+input{
+    padding: 10px 12px;
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #ececec;
+    line-height: 1.5rem;
+    color: #444444;
+}
+/*
+    HEADER
+ */
+header{
+    background: #4493a4;
+    height: 70px;
+}
+header *{
+    color: black;
+}
+header h1{
+    margin-top: 10px;
+}
+header h1 a {
+    color: black;
+}
+header h1 a:hover{
+    color: black;
+}
+header ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    float: right;
+}
+header ul li{
+    float: left;
+    position: relative;
+}
+header ul li a{
+    display: block;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+
+}
+header ul li a:hover{
+    background: #4493a4;
+    transition: 0.5s;
+    color: black;
+}
+
+header ul li ul {
+    position: absolute;
+    top: 70px;
+    right: 0px;
+    width: 180px;
+    display: none;
+    z-index: 88888;
+}
+
+header ul li:hover ul{
+    display: block;
+}
+
+header ul li ul li {
+    width: 100%;
+}
+
+header ul li ul li a {
+    padding: 10px;
+    background: white;
+}
+
+/*
+    SLIDER
+ */
+
+.slider-title{
+    text-align: center;
+    padding: 30px 0;
+}
+
+.carousel{
+    height: 500px;
+}
+
+.carousel-inner, .carousel-item{
+    height: 500px;
+    border-radius: 7px;
+}
+
+.carousel-caption h5{
+    font-size: 2rem;
+    font-weight: 600;
+    background: grey;
+    max-width: 100%;
+    padding: 0.2em;
+    opacity: 0.5;
+}
+
+.carousel-caption-hack{
+    position: absolute;
+    right: 0%;
+    bottom: 0.05rem;
+    left: 0%;
+    padding-top: 1.25rem;
+    padding-bottom: 0rem;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+
+.carousel-caption h5 а{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.carousel-caption h5 a:hover{
+    text-decoration: underline;
+}
+
+/*
+    MIDDLE
+ */
+
+.main-content h2{
+    margin: 30px 0;
+}
+
+.main-content .post{
+    margin-bottom: 30px;
+}
+
+.main-content .post_text{
+    background: white;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+.main-content .post_text h3{
+    margin: 10px 0 ;
+}
+.main-content .post_text h3 a:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+.main-content .post_text i{
+    margin: 0px 10px 10px 0;
+}
+
+/*
+   Sidebar
+ */
+
+.search{
+    margin-top: 100px;
+}
+
+.sidebar .section{
+    background: white;
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+.sidebar .topics ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    border-top: 1px solid #e0e0e0;
+}
+
+.sidebar .topics ul li a{
+    display: block;
+    padding: 15px 0px 15px 0px;
+    border-bottom: 1px solid #e0e0e0;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-weight: 500;
+    color: #5c5b5b;
+    font-size: 1.2em;
+}
+
+.sidebar .topics ul li a:hover{
+    padding-left: 10px;
+    transition: all 0.3s;
+}
+
+/*
+    Footer
+ */
+.footer{
+    background: #303036;
+    color: #d3d3d3;
+    position: relative;
+}
+
+.footer .footer-section{
+    padding: 22px;
+}
+
+.footer h4, .footer h3{
+    color: white;
+}
+
+.footer .about .contact span{
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+.footer .about .socials a{
+    border: 1px solid grey;
+    width: 45px;
+    height: 41px;
+    padding-top: 5px;
+    margin-right: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    border-radius: 5px;
+    transition: all .3s;
+    color: white;
+}
+
+.footer .about .socials a:hover{
+    border: 1px solid white;
+    color: white;
+    transition: all .3s;
+}
+
+.footer .footer-bottom {
+    background: #303036;
+    color: #686868;
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    position: sticky;
+    margin-top: 1px;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 5px;
+}
+
+/*
+    SINGLE_POST
+ */
+.single_post{
+    margin-bottom: 30px;
+}
+.single_post .info{
+    margin: 10px 0;
+}
+
+.single_post .info i{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/*
+    FORMS
+ */
+
+.reg_form h2{
+    text-align: center;
+    margin: 30px 0 ;
+}
+
+.reg_form input{
+    height: 3.3rem;
+}
+
+.reg_form a{
+    font-size: 1.2em;
+    transition: all .3s;
+    color: #5c5b5b;
+    text-decoration: none;
+    margin-left: 60px;
+}
+
+.reg_form a:hover {
+    margin-left: 55px;
+    transition: all .3s
+}
