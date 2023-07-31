@@ -1,0 +1,6 @@
+#Тут будут все функции добавления в Базу данных
+
+
+//INSERT INTO `users` (`id`, `admin`, `username`, `email`, `password`, `created`) VALUES (NULL, '0', 'Rumiya', 'littleangel03@mail.ru', 'rumiya', CURRENT_TIMESTAMP);
+
+//INSERT INTO `users` (`id`, `admin`, `username`, `email`, `password`, `created`) VALUES (NULL, '0', 'Ruzalina', 'R@mail.ru', 'ruzalina15', CURRENT_TIMESTAMP);

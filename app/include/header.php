@@ -9,7 +9,7 @@
             <nav class="col-8">
                 <ul>
                     <li><a href="<?php echo BASE_URL ?>">Главная</a> </li>
-                    <li><a href="#">О нас</a> </li>
+                    <li><a href="<?php echo BASE_URL . 'about.php' ?>">О нас</a> </li>
                     <li>
                         <a href="#">
                             <i class="fa-solid fa-bars"></i>
