@@ -90,3 +90,39 @@ $params = [
 //tt(selectAll('users', $params));
 
 tt(selectOne('users'));
+
+//Запись в таблицу БД
+function insert($table, $params){
+    global $pdo;
+    //INSERT INTO `users` (admin, username, email, password) VALUES ( '1', 'Ilnar', 'I@mail.ru', '090680');
+    // Посчитать цикл
+    $i = 0;
+    // Создать колонку
+    $coll = '';
+    // В эту колонку подставить значения
+    $mask = '';
+    foreach ($params as $key => $value){
+        if ($i === 0){
+            $coll = $coll . "$key";
+            $mask = $mask ."'" . "$value"."'";
+        }else{
+            $coll = $coll . ", $key" ;
+            $mask = $mask . ", '" . "$value" . "'";
+        }
+        $i++;
+    }
+
+    $sql = "INSERT INTO $table ($coll) VALUES ($mask)";
+    $query = $pdo->prepare($sql);
+    $query->execute($params);
+    dbCheckError($query);
+}
+
+$arrData = [
+    'admin' => '1',
+    'username' => 'rururu',
+    'email' => '2tert@dfdf.ru',
+    'password' => '12334',
+    'created' => '2021-01-01 00:00:02'
+];
+insert('users', $arrData);
