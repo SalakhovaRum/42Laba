@@ -305,3 +305,12 @@ header ul li ul li a {
     margin-left: 55px;
     transition: all .3s
 }
+
+/*
+FORMS REGISTRATIONS
+ */
+form div.err p{
+    color: red;
+    font-style: italic;
+    font-size: 0.8rem;
+}

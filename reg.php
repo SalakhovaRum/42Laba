@@ -33,15 +33,19 @@
 <div class="container reg_form">
     <form class="row justify-content-center" method="post" action="reg.php">
         <h2>Форма регистрации</h2>
+        <div class="mb-3 col-12 col-md-4 err">
+            <p><?=$errMsg?></p>
+        </div>
+        <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
-            <input name="login" type="text" class="form-control" id="formGroupExampleInput" placeholder="введите ваш логин...">
+            <input name="login" value="<?=$login?>" type="text" class="form-control" id="formGroupExampleInput" placeholder="введите ваш логин...">
         </div>
         <div class="w-100"></div>
 
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input name="mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="mail" value="<?=$email?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">Ваш Email адрес не будет использован для спама!</div>
         </div>
         <div class="w-100"></div>
