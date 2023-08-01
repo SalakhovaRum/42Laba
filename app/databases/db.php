@@ -82,73 +82,56 @@ function selectOne($table, $params = []){
     return $query->fetch();
 }
 
-$params = [
-    'admin' => 1,
-    'email' => 'littleangel03@mail.ru'
-];
+//Запись в таблицу БД
+function insert($table, $params){
+    global $pdo;
+    //INSERT INTO `users` (admin, username, email, password) VALUES ( '1', 'Ilnar', 'I@mail.ru', '090680');
+    // Посчитать цикл
+    $i = 0;
+    // Создать колонку
+    $coll = '';
+    // В эту колонку подставить значения
+    $mask = '';
+    foreach ($params as $key => $value){
+        if ($i === 0){
+            $coll = $coll . "$key";
+            $mask = $mask ."'" . "$value"."'";
+        }else{
+            $coll = $coll . ", $key" ;
+            $mask = $mask . ", '" . "$value" . "'";
+        }
+        $i++;
+    }
 
-//tt(selectAll('users', $params));
-
-tt(selectOne('users'));
-//
-////Запись в таблицу БД
-//function insert($table, $params){
-//    global $pdo;
-//    //INSERT INTO `users` (admin, username, email, password) VALUES ( '1', 'Ilnar', 'I@mail.ru', '090680');
-//    // Посчитать цикл
-//    $i = 0;
-//    // Создать колонку
-//    $coll = '';
-//    // В эту колонку подставить значения
-//    $mask = '';
-//    foreach ($params as $key => $value){
-//        if ($i === 0){
-//            $coll = $coll . "$key";
-//            $mask = $mask ."'" . "$value"."'";
-//        }else{
-//            $coll = $coll . ", $key" ;
-//            $mask = $mask . ", '" . "$value" . "'";
-//        }
-//        $i++;
-//    }
-//
-//    $sql = "INSERT INTO $table ($coll) VALUES ($mask)";
-//    $query = $pdo->prepare($sql);
-//    $query->execute($params);
-//    dbCheckError($query);
-//}
-//
-//$arrData = [
-//    'admin' => '1',
-//    'username' => 'rururu',
-//    'email' => '2tert@dfdf.ru',
-//    'password' => '12334',
-//    'created' => '2021-01-01 00:00:02'
-//];
-//insert('users', $arrData);
+    $sql = "INSERT INTO $table ($coll) VALUES ($mask)";
+    $query = $pdo->prepare($sql);
+    $query->execute($params);
+    dbCheckError($query);
+    return $pdo->lastInsertId();
+}
 
 
-//// Обновления строки в таблице
-//function update($table, $id, $params){
-//    global $pdo;
-//    // Посчитать цикл
-//    $i = 0;
-//    $str = '';
-//    foreach ($params as $key => $value){
-//        if ($i === 0){
-//            $str = $str . $key . " = '" . $value."'";
-//        }else{
-//            $str = $str .", ". $key . " = '" . $value . "'";
-//        }
-//        $i++;
-//    }
-//
-//    // UPDATE 'users' set username='test', password = '55555' WHERE 'id'=14
-//    $sql = "UPDATE $table SET $str WHERE id = $id";
-//    $query = $pdo->prepare($sql);
-//    $query->execute($params);
-//    dbCheckError($query);
-//}
+// Обновления строки в таблице
+function update($table, $id, $params){
+    global $pdo;
+    // Посчитать цикл
+    $i = 0;
+    $str = '';
+    foreach ($params as $key => $value){
+        if ($i === 0){
+            $str = $str . $key . " = '" . $value."'";
+        }else{
+            $str = $str .", ". $key . " = '" . $value . "'";
+        }
+        $i++;
+    }
+
+    // UPDATE 'users' set username='test', password = '55555' WHERE 'id'=14
+    $sql = "UPDATE $table SET $str WHERE id = $id";
+    $query = $pdo->prepare($sql);
+    $query->execute($params);
+    dbCheckError($query);
+}
 
 // Функция удаления
 function delete($table, $id){
@@ -159,5 +142,3 @@ function delete($table, $id){
     $query->execute();
     dbCheckError($query);
 }
-
-delete('users', 6);
