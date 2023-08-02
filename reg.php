@@ -45,7 +45,7 @@
 
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input name="mail" value="<?=$email?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="mail" value="<?=$email?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="введите ваш email...">
             <div id="emailHelp" class="form-text">Ваш Email адрес не будет использован для спама!</div>
         </div>
         <div class="w-100"></div>
