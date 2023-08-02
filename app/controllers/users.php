@@ -12,11 +12,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $pass = trim($_POST['password']);
     $passS = trim($_POST['pass-second']);
 
-    if($login === '' || $email === '' || $pass === '') {
-        $errMsg = 'Не все поля заполнены!';
-    }elseif(mb_strlen($login, 'UTF8')<2) {
+    if($login === '' || $email === '' || $pass === ''){
+        $errMsg = "Не все поля заполнены!";
+    }elseif(mb_strlen($login, 'UTF8') < 2){
         $errMsg = "Логин должен быть больше 2-х символов";
-    }elseif($pass !== $passS){
+    }elseif($pass !== $passS) {
         $errMsg = "Пароли везде должны соответствовать!";
     }else{
         $existence = selectOne('users', ['email' => $email]);
@@ -31,7 +31,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 'password' => $pas,
             ];
             $id = insert('users', $post);
-            $errMsg = "Пользователь " . "<strong>" . $login . "</strong>" . "успешно зарегистрирован!";
+            $user = selectOne('users', ['id' => $id]);
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['login'] = $user['username'];
+            $_SESSION['admin'] = $user['admin'];
+
+            if ($_SESSION['admin']){
+                header('location:' . BASE_URL . admin/admin.php);
+            }else{
+                header('location: ' . BASE_URL);
+            }
         }
     }
 }else{

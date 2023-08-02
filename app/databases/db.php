@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require('connect.php');
 
 function tt($value){
@@ -11,7 +12,6 @@ function tt($value){
 // Проверка на ошибки
 function dbCheckError($query){
     $errInfo = $query->errorInfo();
-
     if ($errInfo[0] !== PDO::ERR_NONE){
         echo $errInfo[2];
         exit();
@@ -38,7 +38,6 @@ function selectAll($table, $params = []){
             }
             $i++;
         }
-
     }
 
     // Подготовка запроса
