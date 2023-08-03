@@ -1,5 +1,6 @@
-<?php include 'path.php';
-    include 'app/databases/db.php';
+<?php
+include "path.php";
+include "app/databases/db.php";
 ?>
 
 <!doctype html>

@@ -1,3 +1,3 @@
 <?php
 
-define("BASE_URL", "http://localhost/Laba/");
+const BASE_URL = "http://localhost/Laba/";

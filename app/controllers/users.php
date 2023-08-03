@@ -4,18 +4,6 @@ include("app/databases/db.php");
 // errMsg - заполненные поля
 $errMsg = '';
 
-function userAuth($user){
-    $_SESSION['id'] = $user['id'];
-    $_SESSION['login'] = $user['username'];
-    $_SESSION['admin'] = $user['admin'];
-
-    if ($_SESSION['admin']){
-        header('location:' . BASE_URL . "admin/admin.php");
-    }else{
-        header('location: ' . BASE_URL);
-    }
-}
-
 // Код для формы регистрации
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
 
@@ -33,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
         $errMsg = "Пароли везде должны соответствовать!";
     }else{
         $existence = selectOne('users', ['email' => $email]);
-        if($existence['email'] === $email){
+        if(is_array($existence) && $existence['email'] === $email){
             $errMsg = "Пользователь с такой почтой уже зарегистрирован!";
         }else{
             $pas = password_hash($pass, PASSWORD_DEFAULT);
@@ -46,6 +34,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
             $id = insert('users', $post);
             $user = selectOne('users', ['id' => $id]);
 
+             $_SESSION['id'] = $user['id'];
+             $_SESSION['login'] = $user['username'];
+             $_SESSION['admin'] = $user['admin'];
+
+             if ($_SESSION['admin']){
+                header('location:' . BASE_URL . "admin/admin.php");
+             }else{
+                header('location: ' . BASE_URL);
+            }
         }
     }
 }else{
@@ -61,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-log'])){
     //тут может быть ошибка
     $pas = trim($_POST['password']);
 
-    if($email === '' || $pass === '') {
+    if($email === '' || $pas === '') {
         $errMsg = "Не все поля заполнены!";
     }else {
         $existence = selectOne('users', ['email' => $email]);
