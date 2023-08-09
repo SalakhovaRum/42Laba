@@ -43,9 +43,9 @@
         </div>
         <div class="posts col-9">
             <div class="button row">
-                <a href="create.php" class="col-2 btn btn-success">Add Post</a>
+                <a href="create.php" class="col-2 btn btn-success">Создать пост</a>
                 <span class="col-1"></span>
-                <a href="index.php" class="col-3 btn btn-warning">Manage Posts</a>
+                <a href="index.php" class="col-3 btn btn-warning">Управлять постами</a>
             </div>
             <div class="row title-table">
                 <h2>Управления записями</h2>
