@@ -1,6 +1,6 @@
 <?php
 
-include "../../app/databases/db.php";
+include SITE_ROOT .  "/app/databases/db.php";
 
 $errMsg = '';
 $id = '';
