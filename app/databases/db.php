@@ -1,12 +1,15 @@
 <?php
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require('connect.php');
 
 function tt($value){
     echo '<pre>';
     print_r($value);
     echo '</pre>';
+    exit();
 }
 
 // Проверка на ошибки
@@ -136,7 +139,7 @@ function update($table, $id, $params){
 function delete($table, $id){
     global $pdo;
     // DELETE FROM 'users' WHERE id = 8
-    $sql = "DELETE FROM $table WHERE id = $id";
+    $sql = "DELETE FROM $table WHERE id =". $id;
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);

@@ -1,5 +1,6 @@
 <?php session_start();
-include "../../path.php"
+    include "../../path.php";
+    include "../../app/controllers/topics.php";
 ?>
 
 <!doctype html>
@@ -40,12 +41,14 @@ include "../../path.php"
                 <div class="col-5">Название</div>
                 <div class="col-4">Управление</div>
             </div>
+            <?php foreach ($topics as $key => $topic): ?>
             <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="title col-5">Путешествие</div>
-                <div class="red col-2"><a href="">edit</a></div>
-                <div class="del col-2"><a href="">delete</a> </div>
+                <div class="id col-1"><?=$key + 1; ?></div>
+                <div class="title col-5"><?=$topic['name']; ?></div>
+                <div class="red col-2"><a href="edit.php?id=<?=$topic['id']; ?>">edit</a></div>
+                <div class="del col-2"><a href="edit.php?del_id=<?=$topic['id']; ?>">delete</a> </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
