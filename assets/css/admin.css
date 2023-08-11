@@ -228,3 +228,19 @@ SIDEBAR
 .add-post form div{
     margin: 2rem 0;
 }
+
+/*
+error msg
+ */
+
+.add-post .err{
+    padding: 1rem 0;
+    color: #A52A2A;
+}
+
+.add-post .err ul{
+    list-style: none;
+    color: #A52A2A;
+    padding-left: 10px;
+    font-weight: 500;
+}

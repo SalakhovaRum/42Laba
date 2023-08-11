@@ -39,13 +39,17 @@
                 <h2>Добавление записи</h2>
             </div>
             <div class="row add-post">
+                <div class="mb-12 col-12 col-md-12 err">
+                    <!-- Вывод массива с ошибками -->
+                    <?php include "../../app/helps/errorInfo.php" ?>
+                </div>
                 <form action="create.php" method="post" enctype="multipart/form-data">
                     <div class="col">
-                        <input name="title" type="text" class="form-control" placeholder="Tittle" aria-label="Название статьи">
+                        <input value="<?=$title ?>" name="title" type="text" class="form-control" placeholder="Tittle" aria-label="Название статьи">
                     </div>
                     <div class="col">
                         <label for="editor" class="form-label">Содержимое записи</label>
-                        <textarea name="content" id="editor" class="form-control" id="content" rows="6"></textarea>
+                        <textarea name="content" id="editor" class="form-control" id="content" rows="6"><?=$content ?></textarea>
                     </div>
                     <div class="input-group col">
                         <input name="img" type="file" class="form-control" id="inputGroupFile02">
