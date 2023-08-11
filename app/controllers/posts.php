@@ -1,6 +1,9 @@
 <?php
 
 include SITE_ROOT .  "/app/databases/db.php";
+if (!$_SESSION){
+    header('location: ' . BASE_URL . 'login.php');
+}
 
 $errMsg = '';
 $id = '';
@@ -16,6 +19,28 @@ $postsAdm = selectAllFromPostsWithUsers('posts', 'users');
 
 // Код для формы создания записи
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post'])){
+    if (!empty($_FILES['img']['name'])){
+        $imgName = time() . "_" .  $_FILES['img']['name'];
+        $fileTmpName = $_FILES['img']['tmp_name'];
+        $fileType = $_FILES['img']['type'];
+        $destination = ROOT_PATH . "\assets\images\posts\\" . $imgName;
+
+
+        if(strpos($fileType, 'image') === false){
+            die("МОЖНО ЗАГРУЖАТЬ ТОЛЬКО ИЗОБРАЖЕНИЯ!");
+        }else{
+            $result = move_uploaded_file($fileTmpName, $destination);
+
+            if ($result){
+                $_POST['img'] = $imgName;
+            }else{
+                $errMsg = "Ошибка загрузки изображения на сервер";
+            }
+        }
+    }else{
+        $errMsg = "Ошибка получения картинки";
+    }
+
     $title = trim($_POST['title']);
     $content = trim($_POST['content']);
     $topic = trim($_POST['topic']);
@@ -44,6 +69,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post'])){
     $title = '';
     $content = '';
 }
+
 
 // Редактирование категории
 if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])){
