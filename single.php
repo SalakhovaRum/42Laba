@@ -3,7 +3,7 @@
 
 $post = selectOne('posts', ['id' => $_GET['post']]);
 
-tt($post);
+
 ?>
 
 <!doctype html>

@@ -174,3 +174,14 @@ function selectAllFromPostsWithUsersOnIndex($table1, $table2){
     dbCheckError($query);
     return $query->fetchAll();
 }
+
+
+// Выборка TOP записей с автором на главную
+function selectTopTopicFromPostsOnIndex($table1){
+    global $pdo;
+    $sql = "SELECT * FROM $table1 WHERE id_topic = 15";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
