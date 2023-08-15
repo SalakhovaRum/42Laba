@@ -1,5 +1,6 @@
 <?php session_start();
-include "../../path.php"
+    include "../../path.php";
+    include "../../app/controllers/users.php";
 ?>
 
 <!doctype html>
@@ -38,6 +39,10 @@ include "../../path.php"
                 <h2>Создание пользователя</h2>
             </div>
             <div class="row add-post">
+                <div class="mb-12 col-12 col-md-12 err">
+                    <!-- Вывод массива с ошибками -->
+                    <?php include "../../app/helps/errorInfo.php"; ?>
+                </div>
                 <form action="create.php" method="post">
                     <div class="col">
                         <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
@@ -51,16 +56,16 @@ include "../../path.php"
                         <label for="exampleInputPassword1" class="form-label">Пароль</label>
                         <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="введите ваш пароль...">
                     </div>
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="1">Admin</option>
-                        <option value="1">Users</option>
-                    </select>
+                    <input name="admin" class="form-check-input" value="1" type="checkbox"  id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Admin?
+                    </label>
                     <div class="col">
                         <label for="exampleInputPassword2" class="form-label">Повторите пароль</label>
                         <input name="pass-second" type="password" class="form-control" id="exampleInputPassword2" placeholder="повторите пароль...">
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary" type="submit">Создать</button>
+                        <button name="create-user" class="btn btn-primary" type="submit">Создать</button>
                     </div>
                 </form>
             </div>
