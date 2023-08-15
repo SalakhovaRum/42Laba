@@ -77,8 +77,8 @@
                         <h3>
                             <a href="<?=BASE_URL . 'single.php?post=' .  $post['id'];?>"><?=substr($post['title'], 0, 120) . '...' ?></a>
                         </h3>
-                        <i class="far fa-user"> <?=$post['username'];?></i>
-                        <i class="far fa-calendar"> <?=$post['created_date'];?></i>
+                        <i class="far fa-user"><?=$post['username'];?></i>
+                        <i class="far fa-calendar"><?=$post['created_date'];?></i>
                         <p class="preview-text">
                             <?=mb_substr($post['content'], 0, 50, 'UTF-8') . '...' ?>
                         </p>
