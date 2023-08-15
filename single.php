@@ -1,5 +1,5 @@
 <?php include "path.php";
-        include SITE_ROOT . "/app/databases/db.php";
+        include "app/controllers/topics.php";
 
 $post = selectPostFromPostsWithUsersOnSingle('posts', 'users', $_GET['post']);
 ?>
@@ -103,12 +103,13 @@ $post = selectPostFromPostsWithUsersOnSingle('posts', 'users', $_GET['post']);
             <div class="section topics">
                 <h3>Категории</h3>
                 <ul>
-                    <li><a href="#">Программирование</a> </li>
-                    <li><a href="#">Кулинария</a> </li>
-                    <li><a href="#">Учеба</a> </li>
+                    <?php foreach($topics as $key => $topic): ?>
+                        <li>
+                            <a href="<?=BASE_URL . 'category.php?id=' . $topic['id']; ?>"><?=$topic['name']; ?></a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
-
         </div>
     </div>
 </div>

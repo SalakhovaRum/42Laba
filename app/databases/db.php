@@ -212,3 +212,4 @@ function selectPostFromPostsWithUsersOnSingle($table1, $table2, $id){
     dbCheckError($query);
     return $query->fetch();
 }
+
