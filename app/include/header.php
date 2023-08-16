@@ -11,16 +11,15 @@
                     <li><a href="<?php echo BASE_URL ?>">Главная</a> </li>
                     <li><a href="<?php echo BASE_URL . 'about.php' ?>">О нас</a> </li>
 
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-bars"></i>
-                            Сервисы
-                        </a>
-                        <ul>
-                            <li><a href="single.php">Создание блога</a> </li>
-                            <li><a href="#">Отзывы и предложения</a> </li>
-                        </ul>
-                    </li>
+<!--                    <li>-->
+<!--                        <a href="--><?php //echo BASE_URL ?><!--">-->
+<!--                            <i class="fa-solid fa-bars"></i>-->
+<!--                            Сервисы-->
+<!--                        </a>-->
+<!--                        <ul>-->
+<!--                            <li><a href="http://localhost/Laba/admin/posts/index.php">Управление</a> </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
 
                     <li>
                         <?php if (isset($_SESSION['id'])): ?>
@@ -30,7 +29,7 @@
                             </a>
                             <ul>
                                 <?php if ($_SESSION['admin']): ?>
-                                    <li><a href="#">Админ панель</a> </li>
+                                    <li><a href="http://localhost/Laba/admin/posts/index.php">Админ панель</a> </li>
                                 <?php endif; ?>
                                 <li><a href="<?php echo BASE_URL . "logout.php"; ?>">Вышел и зашел нормально:)</a> </li>
                             </ul>

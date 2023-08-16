@@ -1,6 +1,7 @@
 <?php
     include("path.php");
     include("app/controllers/users.php");
+    $errMsg = '';
 ?>
 
 <!doctype html>

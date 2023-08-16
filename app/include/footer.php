@@ -12,10 +12,10 @@
                     <span><i class="fas fa-envelope"></i> &nbsp; littleangel03@mail.ru </span>
                 </div>
                 <div class="socials">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-vk"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://t.me/Rum_angel"><i class="fab fa-telegram"></i></a>
+                    <a href="https://instagram.com/rum_angel3?igshid=MzRlODBiNWFlZA=="><i class="fab fa-instagram"></i></a>
+                    <a href="https://vk.com/angel277"><i class="fab fa-vk"></i></a>
+                    <a href="https://www.youtube.com/account"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>

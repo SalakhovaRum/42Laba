@@ -1,5 +1,6 @@
 <?php include "path.php";
       include "app/controllers/users.php";
+      $errMsg = '';
 ?>
 
 <html lang="ru">

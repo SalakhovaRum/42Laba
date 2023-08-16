@@ -1,7 +1,9 @@
 <?php include "path.php";
         include "app/controllers/topics.php";
 
-$post = selectPostFromPostsWithUsersOnSingle('posts', 'users', $_GET['post']);
+$post = selectOne('posts', ['id' => $_GET['post']]);
+
+
 ?>
 
 <!doctype html>
